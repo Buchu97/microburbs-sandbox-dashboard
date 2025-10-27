@@ -1,0 +1,90 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Microburbs Sandbox Dashboard</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="" crossorigin=""></script>
+</head>
+<body>
+  <header class="container">
+    <h1>Microburbs Sandbox Dashboard</h1>
+    <p class="subtitle">Type a suburb, choose a report, and instantly turn complex property data into insight.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+     <div class="grid">
+  <div class="field">
+    <label>Access token</label>
+    <input id="token" placeholder="e.g. test" value="test">
+  </div>
+
+  <div class="field">
+    <label>Resource</label>
+    <select id="resource">
+      <option value="suburb" selected>suburb</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Endpoint</label>
+    <!-- leave empty; JS will populate based on resource -->
+    <select id="endpoint"></select>
+  </div>
+
+  <div class="field">
+    <label>Location (suburb or address)</label>
+    <input id="suburb" placeholder="e.g. Belmont North or 1 Smith St, NSW" value="Belmont North">
+  </div>
+
+  <div class="field">
+    <label>Include geometry</label>
+    <input id="geojson" type="checkbox">
+  </div>
+
+  <div class="actions">
+    <button id="runBtn">Run</button>
+  </div>
+</div>
+
+      <div class="hint">Tip: Switch endpoints to explore different datasets. Geometry will render on the map if provided.</div>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <h2>Highlights</h2>
+        <div id="highlights" class="pillbox"></div>
+        <canvas id="chart" height="140"></canvas>
+      </div>
+      <div class="panel">
+        <h2>Table</h2>
+        <div id="table"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Map</h2>
+      <div id="map"></div>
+    </section>
+
+    <section class="card">
+      <h2>Raw JSON</h2>
+      <pre id="json"></pre>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>Built for the Microburbs API sandbox. No data stored. For demo purposes only.</p>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
