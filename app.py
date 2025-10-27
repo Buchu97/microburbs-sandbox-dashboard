@@ -1,7 +1,6 @@
 
 from flask import Flask, render_template, request, jsonify
 import requests
-from urllib.parse import urlencode
 
 app = Flask(__name__)
 
